@@ -1,0 +1,115 @@
+# To-Do List Manager
+
+# Function to display the main menu options
+def show_menu():
+    print("\n====== To-Do List Manager ======")
+    print("1. View To-Do List")
+    print("2. Add a New Task")
+    print("3. Mark a Task as Completed")
+    print("4. Edit a Task Description")
+    print("5. Delete a Task")
+    print("6. Clear Completed Tasks")
+    print("7. Exit")
+    print("===============================")
+
+# Function to view all tasks in the to-do list
+def view_tasks(tasks):
+    if not tasks:
+        print("\nYour to-do list is currently empty.")
+    else:
+        print("\nYour Current To-Do List:")
+        print("==========================")
+        for index, task in enumerate(tasks, start=1):
+            status = "Done" if task["completed"] else "Not Done"
+            print(f"{index}. {task['description']} [{status}]")
+        print("==========================")
+
+# Function to add a new task to the to-do list
+def add_task(tasks):
+    task_description = input("\nEnter the description of the new task: ")
+    task = {"description": task_description, "completed": False}
+    tasks.append(task)
+    print(f"Task '{task_description}' has been added to your to-do list.")
+
+# Function to mark a specific task as completed
+def mark_task_completed(tasks):
+    if not tasks:
+        print("\nYour to-do list is currently empty. Nothing to mark as completed.")
+    else:
+        view_tasks(tasks)
+        try:
+            task_number = int(input("\nEnter the task number you want to mark as completed: "))
+            if 1 <= task_number <= len(tasks):
+                tasks[task_number - 1]["completed"] = True
+                print(f"Task '{tasks[task_number - 1]['description']}' marked as completed.")
+            else:
+                print("Invalid task number. Please enter a number from the list.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+# Function to edit the description of a task
+def edit_task(tasks):
+    if not tasks:
+        print("\nYour to-do list is currently empty. Nothing to edit.")
+    else:
+        view_tasks(tasks)
+        try:
+            task_number = int(input("\nEnter the task number you want to edit: "))
+            if 1 <= task_number <= len(tasks):
+                new_description = input("Enter the new description: ")
+                tasks[task_number - 1]["description"] = new_description
+                print(f"Task number {task_number} has been updated to: {new_description}")
+            else:
+                print("Invalid task number. Please enter a number from the list.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+# Function to delete a task from the to-do list
+def delete_task(tasks):
+    if not tasks:
+        print("\nYour to-do list is currently empty. Nothing to delete.")
+    else:
+        view_tasks(tasks)
+        try:
+            task_number = int(input("\nEnter the task number you want to delete: "))
+            if 1 <= task_number <= len(tasks):
+                deleted_task = tasks.pop(task_number - 1)
+                print(f"Task '{deleted_task['description']}' has been deleted.")
+            else:
+                print("Invalid task number. Please enter a number from the list.")
+        except ValueError:
+            print("Please enter a valid number.")
+
+# Function to clear all completed tasks from the list
+def clear_completed_tasks(tasks):
+    tasks[:] = [task for task in tasks if not task["completed"]]
+    print("\nAll completed tasks have been removed from the to-do list.")
+
+# Main function to run the To-Do List Manager
+def main():
+    tasks = []  # Initialize an empty list to store tasks
+    while True:
+        show_menu()
+        choice = input("Choose an option (1-7): ")
+        
+        if choice == "1":
+            view_tasks(tasks)
+        elif choice == "2":
+            add_task(tasks)
+        elif choice == "3":
+            mark_task_completed(tasks)
+        elif choice == "4":
+            edit_task(tasks)
+        elif choice == "5":
+            delete_task(tasks)
+        elif choice == "6":
+            clear_completed_tasks(tasks)
+        elif choice == "7":
+            print("\nExiting To-Do List Manager. Goodbye!")
+            break
+        else:
+            print("\nInvalid choice. Please select a valid option from the menu.")
+
+# Execute the main function to start the To-Do List Manager
+if __name__ == "__main__":
+    main()
