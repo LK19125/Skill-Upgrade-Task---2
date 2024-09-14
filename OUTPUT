@@ -1,0 +1,79 @@
+OUTPUT : 
+— ----------------------- —
+
+====== To-Do List Manager =====
+1. View To-Do List
+2. Add a New Task
+3. Mark a Task as Completed
+4. Edit a Task Description
+5. Delete a Task
+6. Clear Completed Tasks
+7. Exit
+===========================
+
+Choose an option (1-7) : 1
+
+Your to-do list is currently empty.
+
+======To-Do List Manager =====
+
+1. View To-Do List
+2. Add a New Task
+3. Mark a Task as Completed
+4. Edit a Task Description
+5. Delete a Task
+6. Clear Completed Tasks
+7. Exit
+============================
+
+Choose an option (1-7) : 2
+Enter the description of the new task: 3
+Task '3' has been added to your to-do list.
+
+====== To-Do List Manager =====
+
+1. View To-Do List
+2. Add a New Task
+3. Mark a Task as Completed
+4. Edit a Task Description
+5. Delete a Task
+6. Clear Completed Tasks
+7. Exit
+===========================
+Choose an option (1-7) : 4
+
+Your Current To-Do List :
+==========================
+1. 3 [Not Done]
+==========================
+
+Enter the task number you want to edit : 5
+Invalid task number. Please enter a number from the list.
+
+====== To-Do List Manager =====
+
+1. View To-Do List
+2. Add a New Task
+3. Mark a Task as Completed
+4. Edit a Task Description
+5. Delete a Task
+6. Clear Completed Tasks
+7. Exit
+============================
+Choose an option (1-7) : 6
+All completed tasks have been removed from the to-do list.
+
+====== To-Do List Manager =====
+
+1. View To-Do List
+2. Add a New Task
+3. Mark a Task as Completed
+4. Edit a Task Description
+5. Delete a Task
+6. Clear Completed Tasks
+7. Exit
+============================
+
+Choose an option (1-7) : 7
+
+Exiting To-Do List Manager. Goodbye!
